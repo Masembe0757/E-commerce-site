@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <style>
+         body{
+            margin: 0;
+        }
+        .Login{
+            background-color: aliceblue;
+            align-items: center;
+            padding: 50px;
+        }
+        .Login label{
+            display: block;
+            text-align: left;
+            padding-top: 15px;
+        }
+        .Login input{
+            border: 3px solid whitesmoke;
+            padding: 10px;
+        }
+        .Login button{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: coral;
+            color: whitesmoke;
+            border: none;
+        }
+        .Login button:hover{
+            opacity: 60%;
+        }
+        .Login a{
+            text-decoration:  none;
+        }
+
+    </style>
+    <center>
+    <div class="Login">
+        <form method="POST" action="login">
+            {% csrf_token %}
+        <p>Enter login details</p>
+        <label></label>
+        <input type="text" name = "username" placeholder="username"/>
+        <label></label>
+        <input type="text" name = "password" placeholder="Password"/><br><br>
+        <button type="sumbmit" >login</button><br>
+        <p><a href="register" >Create </a>Account with us</p>
+        </form>
+        <div>
+            {% for message in messages %}
+            <p style="color: red;" >{{message}}</p>
+            {% endfor %}
+            </div>
+    </div>
+</center>
+</body>
+</html>

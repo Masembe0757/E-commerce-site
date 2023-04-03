@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>register</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <style>
+        .Regdiv{
+            background-color: aliceblue;
+            padding: 50px;
+            align-content: center;
+        }
+        .Regdiv label{
+            display: block;
+            text-align: left;
+            padding-top: 15px;
+        }
+        .Regdiv input{
+            border: 3px solid whitesmoke;
+            padding: 10px;
+        }
+     
+       
+        .Regdiv button{
+            padding: 5px;
+            border-radius: 5px;
+            background-color: coral;
+            color: whitesmoke;
+            border: none;
+        }
+        .Regdiv button:hover{
+            opacity: 60%;
+        }
+        body{
+            margin: 0;
+        }
+        .Regdiv a{
+            text-decoration: none;
+        }
+    </style>
+    <center>
+    <div class="Regdiv" >
+        
+        <form action="register" method="POST" >
+            {% csrf_token %}
+            <p>Enter registration details</p>
+            <input type="text" name="fname" placeholder="first name"/>
+            <label></label>
+            <input type="text" name="lname" placeholder="last name"/>
+            <label></label>
+            <input type="text" name="username" placeholder="user name"/>
+            <label></label>
+            <input type="email" name="email" placeholder="email"/>
+            <label></label>
+            <input type="password" name="password1" placeholder="password"/>
+            <label></label>
+            <input type="password" name="password2" placeholder="confirm password"/><br><br>
+            <button type="submit" >Register</button><br>
+            <p>Back to <a href="login"> login</a></p>
+        </form>
+        <div>
+        {% for message in messages %}
+        <p style="color: red;" >{{message}}</p>
+        {% endfor %}
+        </div>
+    
+    </div>
+</center>
+    
+</body>
+</html>
